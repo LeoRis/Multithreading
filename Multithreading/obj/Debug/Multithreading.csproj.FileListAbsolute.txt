@@ -1,0 +1,7 @@
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\bin\Debug\Multithreading.exe.config
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\bin\Debug\Multithreading.exe
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\bin\Debug\Multithreading.pdb
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.csproj.AssemblyReference.cache
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.csproj.CoreCompileInputs.cache
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.exe
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.pdb
