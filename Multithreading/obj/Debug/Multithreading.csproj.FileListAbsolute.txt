@@ -5,3 +5,6 @@ C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug
 C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.csproj.CoreCompileInputs.cache
 C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.exe
 C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\obj\Debug\Multithreading.pdb
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\bin\Debug\NLog.config
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\bin\Debug\NLog.dll
+C:\Users\Leonid.Ristanovski\source\repos\Multithreading\Multithreading\bin\Debug\NLog.xml

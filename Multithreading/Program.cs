@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Threading;
 using System.Timers;
 
@@ -19,25 +20,26 @@ namespace Multithreading
         }
         void Go()
         {
-            Console.WriteLine("IncThread is waiting for the mutex.");
+            
+            Program.WriteToFile("IncThread is waiting for the mutex.");
             MyCounter.MuTexLock.WaitOne();
-            Console.WriteLine("IncThread acquires the mutex.");
+            Program.WriteToFile("IncThread acquires the mutex.");
 
             int num = 5;
             do
             {
                 Thread.Sleep(50);
                 MyCounter.count++;
-                Console.WriteLine("In IncThread, MyCounter.count is " + MyCounter.count);
+                Program.WriteToFile("In IncThread, MyCounter.count is " + MyCounter.count);
                 num--;
             } while (num > 0);
-            Console.WriteLine("IncThread releases the mutex.");
+            Program.WriteToFile("IncThread releases the mutex.");
             MyCounter.MuTexLock.ReleaseMutex();
         }
 
         public static void OnElapsedTime(object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("IncThread is at: " + DateTime.Now); ;
+            Program.WriteToFile("IncThread is at: " + DateTime.Now); ;
         }
     }
     class DecThread
@@ -47,39 +49,49 @@ namespace Multithreading
         {
             th = new Thread(new ThreadStart(this.Go));
             th.Start();
-        }  
+        }
         void Go()
-        {  
-            Console.WriteLine("DecThread is waiting for the mutex.");  
-            MyCounter.MuTexLock.WaitOne();  
-            Console.WriteLine("DecThread acquires the mutex.");
+        {
+            Program.WriteToFile("DecThread is waiting for the mutex.");
+            MyCounter.MuTexLock.WaitOne();
+            Program.WriteToFile("DecThread acquires the mutex.");
 
             int num = 5;
             do
             {
-                Thread.Sleep(50);  
-                MyCounter.count--;  
-                Console.WriteLine("In DecThread, MyCounter.count is " + MyCounter.count);  
-                num--;  
-            } while (num > 0) ;
-            Console.WriteLine("DecThread releases the mutex.");
-            MyCounter.MuTexLock.ReleaseMutex();  
+                Thread.Sleep(50);
+                MyCounter.count--;
+                Program.WriteToFile("In DecThread, MyCounter.count is " + MyCounter.count);
+                num--;
+            } while (num > 0);
+            Program.WriteToFile("DecThread releases the mutex.");
+            MyCounter.MuTexLock.ReleaseMutex();
         }
         public static void OnElapsedTime(object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("DecThread is at: " + DateTime.Now); ;
+            Program.WriteToFile("DecThread is at: " + DateTime.Now); ;
         }
     }
 
+
     class Program
     {
+        readonly static Logger logger = LogManager.GetLogger("fileLogger");
+
+        public static void WriteToFile(string Message)
+        {
+            logger.Info(Message);
+        }
         public static void Main()
         {
+
             IncThread myt1 = new IncThread();
             DecThread myt2 = new DecThread();
             myt1.th.Join();
             myt2.th.Join();
-            Console.Read();
+            NLog.LogManager.Shutdown();
+
+            Console.Read();            
         }
     }
 
